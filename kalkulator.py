@@ -1,3 +1,5 @@
+import logging
+
 def dodawanie(*args):
     return sum(args)
 
@@ -21,23 +23,24 @@ def dzielenie(a, b):
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     print("Podaj działanie, posługując się odpowiednią liczbą:")
     print("1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:")
     str_operation = ['Dodaję:', 'Odejmuję:', 'Mnożę:', 'Dzielę:']
     operation = int(input())
 
     if operation in [1, 2, 3, 4]:
-        print(f"Wybrano operację: {operation}")
+        logging.info("Wybrano operację: %s", operation)
 
         if operation in [1, 3]:  # Dodawanie lub mnożenie
             components = [float(x) for x in input(
                 "Podaj składniki oddzielone spacją: ").split()]
-            print(
+            logging.info(
                 f"{str_operation[operation-1]} {', '.join(map(str, components)) if len(components) > 1 else components[0]}")
         else:  # Odejmowanie lub dzielenie
             component1 = float(input("Podaj składnik 1: "))
             component2 = float(input("Podaj składnik 2: "))
-            print(f"{str_operation[operation-1]} {component1} i {component2}")
+            logging.info(f"{str_operation[operation-1]} {component1} i {component2}")
 
         if operation == 1:
             result = dodawanie(*components)
