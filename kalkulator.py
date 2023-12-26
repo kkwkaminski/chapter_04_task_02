@@ -1,5 +1,6 @@
 import logging
 
+
 def dodawanie(*args):
     return sum(args)
 
@@ -40,7 +41,8 @@ if __name__ == "__main__":
         else:  # Odejmowanie lub dzielenie
             component1 = float(input("Podaj składnik 1: "))
             component2 = float(input("Podaj składnik 2: "))
-            logging.info(f"{str_operation[operation-1]} {component1} i {component2}")
+            logging.info(
+                f"{str_operation[operation-1]} {component1} i {component2}")
 
         if operation == 1:
             result = dodawanie(*components)
